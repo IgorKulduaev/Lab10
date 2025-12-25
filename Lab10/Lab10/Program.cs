@@ -85,10 +85,10 @@ public class Time
 
         public void lgota()
         {
-            // Теперь поля hours доступны, так как они protected в Time
             if (hours < 8)
                 Console.WriteLine("Ваше время является льготным");
             else
                 Console.WriteLine("Ваше время НЕ является льготным");
         }
+
     }
