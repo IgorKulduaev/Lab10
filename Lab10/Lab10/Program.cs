@@ -8,8 +8,8 @@ Console.Write("Введите Фамилию: ");
 string surname = Console.ReadLine()!;
 Console.Write("Введите оператора: ");
 string oper = Console.ReadLine()!;
-Time vreme = new Time(hours, minutes, seconds);
-vreme.Print();
+//Time vreme = new Time(hours, minutes, seconds);
+//vreme.Print();
 TimeChild call = new TimeChild(hours, minutes, seconds, surname, oper);
 call.lgota();
 
@@ -28,18 +28,21 @@ public class Time
     public int Hours
     {
         get => hours;
-        set { if (value < 0 || value > 23) { System.Environment.Exit(1); } else { this.hours = value; } }
+        set => hours = (value >= 0 || value < 24) ? value : 0;
     }
+
     public int Minutes
     {
         get => minutes;
-        set { if (value < 0 || value > 59) { System.Environment.Exit(1); } else { this.minutes = value; } }
+        set => minutes = (value >= 0 || value < 60) ? value : 0;
     }
+
     public int Seconds
     {
         get => seconds;
-        set { if (value < 0 || value > 59) { return; } else { this.seconds = value; } }
+        set => seconds = (value >= 0 || value < 60) ? value : 0;
     }
+
     public int TotalMinutes()
     {
         return hours * 60 + minutes;
